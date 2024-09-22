@@ -29,12 +29,15 @@ InvokedOnce::InvokedOnce()
 ///////////////////////////////////////////////////////
 bool InvokedOnce::matches(const Invocation& inv) const
 {
+    (void)inv;
     return true;
 }
 
 ///////////////////////////////////////////////////////
 void InvokedOnce::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;
+
     oss_t oss;
 
     oss << "Invocation is expected only once(), but you are trying to "
@@ -42,7 +45,6 @@ void InvokedOnce::increaseInvoked(const Invocation& inv)
 
     MOCKCPP_ASSERT_TRUE_MESSAGE(
          oss.str(), getInvokedTimes() < 1);
-   
 }
 ///////////////////////////////////////////////////////
 std::string
@@ -64,5 +66,3 @@ void InvokedOnce::verify(void)
 }
 
 MOCKCPP_NS_END
-
-

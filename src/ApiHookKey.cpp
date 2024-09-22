@@ -23,15 +23,14 @@ MOCKCPP_NS_START
 
 ///////////////////////////////////////////////////////////
 ApiHookKey::ApiHookKey(const void* api, ApiHookHolder* holder)
-   : apiAddress(api)
-   , hookHolder(holder)
+   : hookHolder(holder), apiAddress(api)
 {
    hook = new ApiHook(api, holder->getApiHook());
 }
 
 ///////////////////////////////////////////////////////////
 ApiHookKey::ApiHookKey(const void* api)
-   : apiAddress(api), hook(0), hookHolder(0)
+   : hook(0), hookHolder(0), apiAddress(api)
 {
 }
 
@@ -40,7 +39,7 @@ ApiHookKey::~ApiHookKey()
 {
    delete hook;
    delete hookHolder;
-}   
+}
 
 ////////////////////////////////////////////////////////////
 bool ApiHookKey::equals(
@@ -63,7 +62,7 @@ bool ApiHookKey::equals(
     {
        return false;
     }
-     
+
     return key->apiAddress == this->apiAddress;
 }
 

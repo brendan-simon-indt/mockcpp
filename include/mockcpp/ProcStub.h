@@ -42,7 +42,7 @@ struct ProcStubBase : public Stub
     bool isCompleted() const;
 
     std::string toString() const;
-    
+
 private:
 
     ProcStubBaseImpl* This;
@@ -59,11 +59,11 @@ std::string getParameterMismatchString(int n
                     getParameterMismatchString(N, TypeString<MOCKP##N>::value(), inv) \
                         , any_castable<MOCKP##N>(inv.getParameter(N))); \
         MOCKP##N p##N = any_cast<MOCKP##N>(inv.getParameter(N));
-    
+
 #define PROC_STUB_CONS()  \
     ProcStub(Func f, std::string name) \
         : ProcStubBase(name, (void*)f), func(f) \
-    {} 
+    {}
 
 
 ///////////////////////////////////////////////////////////
@@ -101,6 +101,7 @@ struct ProcStub<void(DECL_ARGS(n))> : public ProcStubBase \
  \
     Any& invoke(const Invocation& inv) \
     { \
+        (void)inv; \
         SIMPLE_REPEAT(n, MOCKCPP_CHECK_AND_ASSIGN_PARAMETER); \
  \
         func(DECL_PARAMS(n)); \
@@ -161,6 +162,7 @@ struct ProcStub<void(DECL_VARDIC_ARGS(n) ...)> : public ProcStubBase \
  \
     Any& invoke(const Invocation& inv) \
     { \
+        (void)inv; \
         SIMPLE_REPEAT(n, MOCKCPP_CHECK_AND_ASSIGN_PARAMETER); \
  \
         func(DECL_PARAMS(n)); \
@@ -190,4 +192,3 @@ VARDIC_PROC_STUB_DEF(8);
 MOCKCPP_NS_END
 
 #endif
-

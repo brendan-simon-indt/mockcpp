@@ -21,14 +21,16 @@
 MOCKCPP_NS_START
 
 ///////////////////////////////////////////////////////////
-bool StubsMatcher::matches(const Invocation& inv) const 
+bool StubsMatcher::matches(const Invocation& inv) const
 {
+    (void)inv;
     return true;
 }
 
 ///////////////////////////////////////////////////////////
 void StubsMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;
 }
 
 ///////////////////////////////////////////////////////////
@@ -43,4 +45,3 @@ std::string StubsMatcher::toString() const
 }
 
 MOCKCPP_NS_END
-

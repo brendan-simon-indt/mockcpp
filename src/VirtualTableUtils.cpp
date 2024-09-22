@@ -36,7 +36,7 @@ namespace
 #endif
    const unsigned int SLOTS_PER_VTBL = MOCKCPP_MAX_VTBL_SIZE + EXTRA_VTBL_SLOT;
 
-   unsigned int times = 0;
+   // unsigned int times = 0;
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -49,6 +49,8 @@ void** createVtbls(unsigned int numberOfVptr)
 
 void freeVtbls(void** vtbl, unsigned int numberOfVptr)
 {
+   (void)numberOfVptr;
+
 #if defined(_MSC_VER)
 	 RTTIClassHierarchyDescriptor* desc = 0;
    for(unsigned int i=0; i<numberOfVptr; i++)
@@ -77,7 +79,8 @@ unsigned int getRealVtblIndex(unsigned int indexOfVptr, unsigned int indexOfVtbl
 
 ///////////////////////////////////////////////////////////////////////
 void initializeVtbls(void** vptr, void**vtbl, unsigned int numberOfVptr, const std::type_info& info, bool hasRtti)
-{  
+{
+   (void)hasRtti;
 
 #if defined(_MSC_VER)
 

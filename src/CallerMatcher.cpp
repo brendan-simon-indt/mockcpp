@@ -28,14 +28,16 @@ CallerMatcher::CallerMatcher(const std::string& name)
 }
 
 ///////////////////////////////////////////////////////////
-bool CallerMatcher::matches(const Invocation& inv) const 
+bool CallerMatcher::matches(const Invocation& inv) const
 {
+    (void)inv;
     return inv.getNameOfCaller() == nameOfCaller;
 }
 
 ///////////////////////////////////////////////////////////
 void CallerMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;
 }
 
 ///////////////////////////////////////////////////////////
@@ -54,4 +56,3 @@ std::string CallerMatcher::toString() const
 }
 
 MOCKCPP_NS_END
-

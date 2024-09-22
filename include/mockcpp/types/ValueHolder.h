@@ -60,6 +60,7 @@ Constraint* constraint(const Constraint* c)
 
 Constraint* constraint(const Void& v)
 {
+    (void)v;
     return any();
 }
 
@@ -122,7 +123,7 @@ public:
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<unsigned long> 
+struct ValueHolder<unsigned long>
    : public UnsignedLongHolder<unsigned long>
 {
     ValueHolder(unsigned long value)
@@ -141,7 +142,7 @@ struct ValueHolder<unsigned long>
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<unsigned int> 
+struct ValueHolder<unsigned int>
    : public UnsignedLongHolder<unsigned int>
 {
     ValueHolder(unsigned int value)
@@ -160,7 +161,7 @@ struct ValueHolder<unsigned int>
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<unsigned short> 
+struct ValueHolder<unsigned short>
    : public UnsignedLongHolder<unsigned short>
 {
     ValueHolder(unsigned short value)
@@ -179,7 +180,7 @@ struct ValueHolder<unsigned short>
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<unsigned char> 
+struct ValueHolder<unsigned char>
    : public UnsignedLongHolder<unsigned char>
 {
     ValueHolder(unsigned char value)
@@ -221,7 +222,7 @@ public:
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<long> 
+struct ValueHolder<long>
    : public SignedLongHolder<long>
 {
     ValueHolder(const long& value)
@@ -240,7 +241,7 @@ struct ValueHolder<long>
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<int> 
+struct ValueHolder<int>
    : public SignedLongHolder<int>
 {
     ValueHolder(const int& value)
@@ -259,7 +260,7 @@ struct ValueHolder<int>
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<short> 
+struct ValueHolder<short>
    : public SignedLongHolder<short>
 {
     ValueHolder(const short& value)
@@ -278,7 +279,7 @@ struct ValueHolder<short>
 
 ///////////////////////////////////////////////
 template <>
-struct ValueHolder<char> 
+struct ValueHolder<char>
    : public SignedLongHolder<char>
 {
     ValueHolder(const char& value)
@@ -301,5 +302,3 @@ MOCKCPP_NS_END
 
 
 #endif // __MOCKPP_VALUEHOLDER_H
-
-

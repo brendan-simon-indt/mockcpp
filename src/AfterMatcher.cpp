@@ -31,12 +31,15 @@ AfterMatcher::AfterMatcher()
 //////////////////////////////////////////////////////
 bool AfterMatcher::matches(const Invocation& inv) const
 {
+    (void)inv;
     return true;
 }
 
 //////////////////////////////////////////////////////
 void AfterMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;  
+
     oss_t oss;
 
     oss << "Expected invoked after the invocation with id \""
@@ -44,7 +47,7 @@ void AfterMatcher::increaseInvoked(const Invocation& inv)
         << "\", but that invocation has NOT been invoked yet.";
 
     MOCKCPP_ASSERT_TRUE_MESSAGE(
-         oss.str(), 
+         oss.str(),
          previousCall->hasBeenInvoked());
 }
 
@@ -55,7 +58,7 @@ std::string AfterMatcher::toString() const
 }
 
 //////////////////////////////////////////////////////
-void AfterMatcher::verify() 
+void AfterMatcher::verify()
 {
 }
 
@@ -72,4 +75,3 @@ void AfterMatcher::setOrderingInvocationMocker(InvocationMocker* mocker)
 }
 
 MOCKCPP_NS_END
-

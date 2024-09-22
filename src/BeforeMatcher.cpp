@@ -32,15 +32,18 @@ BeforeMatcher::BeforeMatcher()
 //////////////////////////////////////////////////////
 bool BeforeMatcher::matches(const Invocation& inv) const
 {
+    (void)inv;
     return true;
 }
 
 //////////////////////////////////////////////////////
 void BeforeMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;
+
     oss_t oss;
 
-    oss << "Expected invoked before the invocation with id \"" 
+    oss << "Expected invoked before the invocation with id \""
         << previousCall->getId()->getId()
         << "\", but that invocation has been invoked.";
 
@@ -56,7 +59,7 @@ std::string BeforeMatcher::toString() const
 }
 
 //////////////////////////////////////////////////////
-void BeforeMatcher::verify() 
+void BeforeMatcher::verify()
 {
 }
 
@@ -73,4 +76,3 @@ void BeforeMatcher::setOrderingInvocationMocker(InvocationMocker* mocker)
 }
 
 MOCKCPP_NS_END
-

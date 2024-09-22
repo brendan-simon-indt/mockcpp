@@ -36,12 +36,14 @@ InvokedTimesMatcher::~InvokedTimesMatcher()
 ///////////////////////////////////////////////////////////////////////
 bool InvokedTimesMatcher::matches(const Invocation& inv) const
 {
+    (void)inv;
     return true;
 }
 
 ///////////////////////////////////////////////////////////////////////
 void InvokedTimesMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;
     invokedTimesRecorder->increaseInvoked();
 }
 
@@ -63,4 +65,3 @@ void InvokedTimesMatcher::verify()
 ///////////////////////////////////////////////////////////////////////
 
 MOCKCPP_NS_END
-

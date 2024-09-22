@@ -44,14 +44,15 @@ TypelessConstraintAdapter::TypelessConstraintAdapter(TypelessConstraint* tc)
 //////////////////////////////////////////////////////////////////////////
 TypelessConstraintAdapter::~TypelessConstraintAdapter()
 {
-    delete This;
+   delete This;
 }
 
 //////////////////////////////////////////////////////////////////////////
 bool
 TypelessConstraintAdapter::eval(const RefAny& p) const
 {
-    return This->typelessConstraint->eval();
+   (void)p; 
+   return This->typelessConstraint->eval();
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -67,4 +68,3 @@ std::string TypelessConstraintAdapter::toString() const
 }
 
 MOCKCPP_NS_END
-

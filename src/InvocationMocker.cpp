@@ -91,7 +91,7 @@ InvocationMockerImpl::toString() const
     {
       ss << "\n" << space() << id->toString();
     }
-   
+
     ss << ";";
 
     return ss.str();
@@ -155,7 +155,7 @@ InvocationMockerImpl::matches(const Invocation& inv) const
 
 ///////////////////////////////////////////////////////////
 void
-InvocationMockerImpl::increaseInvoked(const Invocation& inv) 
+InvocationMockerImpl::increaseInvoked(const Invocation& inv)
 {
     for (Iterator i = matchers.begin(); i != matchers.end(); ++i)
     {
@@ -175,7 +175,7 @@ InvocationMockerImpl::invoke(const Invocation& inv)
     if (stub != 0)
     {
       return stub->invoke(inv);
-    } 
+    }
 
     return getVoidAny();
 }
@@ -220,13 +220,13 @@ bool InvocationMocker::hasBeenInvoked(void) const
 }
 
 ///////////////////////////////////////////////////////////
-void InvocationMocker::addStub(Stub* stub) 
+void InvocationMocker::addStub(Stub* stub)
 {
     This->stubs.addStub(stub);
 }
 
 ///////////////////////////////////////////////////////////
-const InvocationId* const InvocationMocker::getId(void) const
+const InvocationId* InvocationMocker::getId(void) const
 {
     return This->id;
 }
@@ -274,4 +274,3 @@ void InvocationMocker::verify()
 ///////////////////////////////////////////////////////////
 
 MOCKCPP_NS_END
-

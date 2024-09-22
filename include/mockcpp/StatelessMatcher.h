@@ -29,10 +29,9 @@ struct StatelessMatcher : public Matcher
 {
     virtual ~StatelessMatcher() {}
     virtual bool matches(const Invocation& inv) const = 0;
-    virtual void increaseInvoked(const Invocation& inv) {}
+    virtual void increaseInvoked(const Invocation& inv) { (void)inv; }
 };
 
 MOCKCPP_NS_END
 
 #endif
-

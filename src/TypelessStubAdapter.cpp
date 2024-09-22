@@ -38,6 +38,7 @@ bool TypelessStubAdapter::isCompleted() const
 ////////////////////////////////////////////////////////
 Any& TypelessStubAdapter::invoke(const Invocation& inv)
 {
+   (void)inv;  
 	return stub->invoke();
 }
 
@@ -50,5 +51,3 @@ std::string TypelessStubAdapter::toString() const
 ////////////////////////////////////////////////////////
 
 MOCKCPP_NS_END
-
-

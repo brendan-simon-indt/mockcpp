@@ -24,6 +24,7 @@ MOCKCPP_NS_START
 template <typename ValueType>
 ValueType* type_any_cast(AnyBase* op)
 {
+   (void)op;
    return 0;
 }
 
@@ -133,7 +134,7 @@ ValueType* scope_check_any_cast(AnyBase* op)
    }
 
    long* l = type_any_cast<long>(op);
-   if(l  && (((*l) <= (long)std::numeric_limits<ValueType>::max()) && 
+   if(l  && (((*l) <= (long)std::numeric_limits<ValueType>::max()) &&
               (*l) >= (long)std::numeric_limits<ValueType>::min()))
    {
       return (ValueType*)l;
@@ -199,4 +200,3 @@ unsigned long* any_cast<unsigned long>(AnyBase* op)
 }
 
 MOCKCPP_NS_END
-
