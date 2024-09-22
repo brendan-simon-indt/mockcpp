@@ -27,19 +27,26 @@ cmake_force:
 # Set environment variables for the build.
 
 # The shell in which to execute make rules.
-SHELL = /bin/sh
+SHELL := /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND := $(shell which cmake)
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM := $(CMAKE_COMMAND) -E remove -f
+
+# The top-level source directory.
+SRC_ROOT_DIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+
+TEST_NG_PP_SRC_ROOT_DIR := $(realpath "$(SRC_ROOT_DIR)/../../../../test-ng-pp")
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/topcoder/test-ng-pp
+# CMAKE_SOURCE_DIR = /home/topcoder/test-ng-pp
+CMAKE_SOURCE_DIR := $(TEST_NG_PP_SRC_ROOT_DIR)
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/topcoder/test-ng-pp
+# CMAKE_BINARY_DIR = /home/topcoder/test-ng-pp
+CMAKE_BINARY_DIR := $(TEST_NG_PP_SRC_ROOT_DIR)
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -343,4 +350,3 @@ help:
 cmake_check_build_system:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
-
