@@ -26,6 +26,7 @@ struct Ignore
 {
    bool operator==(const Ignore& rhs) const
    {
+      (void)rhs;
       return true;
    }
 };
@@ -37,4 +38,3 @@ Any& getIgnore();
 MOCKCPP_NS_END
 
 #endif
-

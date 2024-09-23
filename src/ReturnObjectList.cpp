@@ -70,9 +70,10 @@ std::string ReturnObjectListImpl::toString() const
 ///////////////////////////////////////////////////////
 unsigned int ReturnObjectListImpl::numberOfValidObjects() const
 {
-    for (size_t i = objects.size()-1; i >= 0; i--)
+    for (size_t i = objects.size()-1; ; i--)
     {
-      if(!objects[i].empty()) return (unsigned int)(i+1);
+      if (!objects[i].empty()) return (unsigned int)(i+1);
+      if (i == 0) break;
     }
 
     return 0;
@@ -90,7 +91,7 @@ Any& ReturnObjectListImpl::invoke()
     {
       return objects[firstUnused++];
     }
-    
+
     MOCKCPP_FAIL("All objects has been returned");
 
     return getEmptyAny();
@@ -100,18 +101,18 @@ Any& ReturnObjectListImpl::invoke()
 #define STORE_OBJECTS(i) This->objects.push_back(o##i)
 
 ReturnObjectList::ReturnObjectList(
-                      const Any& o1 
-                    , const Any& o2 
+                      const Any& o1
+                    , const Any& o2
                     , const Any& o3
-                    , const Any& o4 
+                    , const Any& o4
                     , const Any& o5
-                    , const Any& o6 
+                    , const Any& o6
                     , const Any& o7
                     , const Any& o8
-                    , const Any& o9 
-                    , const Any& o10 
-                    , const Any& o11 
-                    , const Any& o12 
+                    , const Any& o9
+                    , const Any& o10
+                    , const Any& o11
+                    , const Any& o12
     ) : This(new ReturnObjectListImpl)
 {
     STORE_OBJECTS(1);
@@ -153,7 +154,7 @@ std::string ReturnObjectList::toString(void) const
 ///////////////////////////////////////////////////
 const std::type_info& ReturnObjectList::type() const
 {
-    return This->type();   
+    return This->type();
 }
 
 ///////////////////////////////////////////////////
@@ -164,4 +165,3 @@ bool ReturnObjectList::isCompleted() const
 ///////////////////////////////////////////////////
 
 MOCKCPP_NS_END
-

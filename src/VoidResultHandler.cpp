@@ -46,6 +46,8 @@ bool VoidResultHandler::matches(const Any& result) const
 /////////////////////////////////////////////////////////
 const Any& VoidResultHandler::getResult(const Any& result) const
 {
+    (void)result;
+
     oss_t oss;
 
     oss << "You need to specify a return value by using will(...) in \n"
@@ -60,4 +62,3 @@ const Any& VoidResultHandler::getResult(const Any& result) const
 /////////////////////////////////////////////////////////
 
 MOCKCPP_NS_END
-

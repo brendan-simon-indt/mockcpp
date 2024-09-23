@@ -21,14 +21,16 @@
 MOCKCPP_NS_START
 
 ///////////////////////////////////////////////////////////
-bool DefaultMatcher::matches(const Invocation& inv) const 
+bool DefaultMatcher::matches(const Invocation& inv) const
 {
+    (void)inv;
     return true;
 }
 
 ///////////////////////////////////////////////////////////
 void DefaultMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;
 }
 
 ///////////////////////////////////////////////////////////
@@ -43,4 +45,3 @@ std::string DefaultMatcher::toString() const
 }
 
 MOCKCPP_NS_END
-

@@ -29,16 +29,17 @@ NormalResultHandler::NormalResultHandler(bool castable)
 ///////////////////////////////////////////////////////////////////////////
 bool NormalResultHandler::matches(const Any& result) const
 {
-    return isCastable;
+   (void)result;
+   return isCastable;
 }
 
 ///////////////////////////////////////////////////////////////////////////
 const Any& NormalResultHandler::getResult(const Any& result) const
 {
-    return result;
+   (void)result;
+   return result;
 }
 
 ///////////////////////////////////////////////////////////////////////////
 
 MOCKCPP_NS_END
-

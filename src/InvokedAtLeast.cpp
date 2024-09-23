@@ -31,6 +31,7 @@ InvokedAtLeast::InvokedAtLeast(const unsigned int times)
 ///////////////////////////////////////////////////////
 bool InvokedAtLeast::matches(const Invocation& inv) const
 {
+   (void)inv;
 	return true;
 }
 
@@ -53,10 +54,8 @@ void InvokedAtLeast::verify(void)
         << " times, but it's actually invoked " << getInvokedTimes() << " times";
 
     MOCKCPP_ASSERT_TRUE_MESSAGE(
-			"Invoked too few times" 
+			"Invoked too few times"
          , getInvokedTimes() >= lowLimit);
 }
 
 MOCKCPP_NS_END
-
-

@@ -39,7 +39,8 @@ MismatchResultHandler::MismatchResultHandler(
 ////////////////////////////////////////////////////////////////
 bool MismatchResultHandler::matches(const Any& result) const
 {
-      return !isCastable;
+    (void)result;
+    return !isCastable;
 }
 
 ////////////////////////////////////////////////////////////////
@@ -58,4 +59,3 @@ const Any& MismatchResultHandler::getResult(const Any& result) const
 }
 
 MOCKCPP_NS_END
-

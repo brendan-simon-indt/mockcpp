@@ -48,7 +48,7 @@ struct ApiHookGenerator
 
     static bool freeApiHook(void* hook)
     {
-        return 
+        return
         (ApiHookFunctor<F, Seq>::freeApiHook(hook)) ||
         (ApiHookGenerator<F, Seq-1>::freeApiHook(hook));
     }
@@ -62,12 +62,17 @@ template <typename F>
 struct ApiHookGenerator<F, 0>
 {
     static void* findApiHook(F* api)
-    { return 0; }
+    {
+        (void)api;
+        return 0;
+    }
 
     static void* appyApiHook(F* api)
-    { 
+    {
+        (void)api;
+
         oss_t oss;
-        
+
         oss << "Did you define too many mockers in a testcase? "
             << "Probably you should refine your design, "
             << "or you can reconfig ParameterizedApiHookHolder::maxSeq bigger, "
@@ -75,12 +80,15 @@ struct ApiHookGenerator<F, 0>
             << "the bigger it is, the slower compiling is.";
 
         MOCKCPP_REPORT_FAILURE(oss.str());
-   
-        return 0; 
+
+        return 0;
     }
 
     static bool freeApiHook(void* hook)
-    { return true; }
+    {
+        (void)hook;
+        return true;
+    }
 };
 
 /////////////////////////////////////////////////////////////////
@@ -88,4 +96,3 @@ struct ApiHookGenerator<F, 0>
 MOCKCPP_NS_END
 
 #endif
-

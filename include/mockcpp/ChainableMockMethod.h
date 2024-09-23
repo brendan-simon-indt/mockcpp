@@ -90,7 +90,7 @@ struct ChainableMockMethod : public ChainableMockMethodBase<RT>
     RT getResult(const Any& anyResult, SelfDescribe* resultProvider)
     {
       const Any& result = \
-              Result( any_castable<RT>(anyResult) 
+              Result( any_castable<RT>(anyResult)
                     , typeid(RT)
                     , TypeString<RT>::value()
                     , resultProvider).getResult(anyResult);
@@ -115,6 +115,7 @@ struct ChainableMockMethod<void> : public ChainableMockMethodBase<void>
 {
     void getResult(const Any& result, SelfDescribe*)
     {
+      (void)result;
     }
 
 public:
@@ -129,4 +130,3 @@ public:
 MOCKCPP_NS_END
 
 #endif
-

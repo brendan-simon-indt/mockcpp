@@ -28,10 +28,13 @@ ResultHandler* IgnoreResultHandlerFactory::create(
           , const std::string& expectedTypeString
           , const SelfDescribe* selfDescriber)
 {
-    return new IgnoreResultHandler();
+   (void)isCastable;
+   (void)expectedTypeInfo;
+   (void)expectedTypeString;
+   (void)selfDescriber;
+   return new IgnoreResultHandler();
 }
 
 ///////////////////////////////////////////////////////////
 
 MOCKCPP_NS_END
-

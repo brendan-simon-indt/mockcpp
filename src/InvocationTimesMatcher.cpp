@@ -41,6 +41,7 @@ void InvocationTimesMatcher::setInvokedTimesReader(InvokedTimesReader* reader)
 /////////////////////////////////////////////////////////////////////
 void InvocationTimesMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;
 }
 
 /////////////////////////////////////////////////////////////////////
@@ -50,5 +51,3 @@ unsigned int InvocationTimesMatcher::getInvokedTimes() const
 }
 
 MOCKCPP_NS_END
-
-

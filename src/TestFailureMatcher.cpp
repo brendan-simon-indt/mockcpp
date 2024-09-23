@@ -28,12 +28,14 @@ TestFailureMatcher::TestFailureMatcher(const std::string& m, const std::string& 
 //////////////////////////////////////////////////////////////////////
 bool TestFailureMatcher::matches(const Invocation& inv) const
 {
+    (void)inv;
     return true;
 }
 
 //////////////////////////////////////////////////////////////////////
-void TestFailureMatcher::increaseInvoked(const Invocation& inv) 
+void TestFailureMatcher::increaseInvoked(const Invocation& inv)
 {
+    (void)inv;  
     MOCKCPP_FAIL(msg);
 }
 
@@ -49,5 +51,3 @@ void TestFailureMatcher::verify(void)
 }
 
 MOCKCPP_NS_END
-
-
