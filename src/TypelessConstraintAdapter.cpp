@@ -51,8 +51,8 @@ TypelessConstraintAdapter::~TypelessConstraintAdapter()
 bool
 TypelessConstraintAdapter::eval(const RefAny& p) const
 {
-   (void)p; 
-   return This->typelessConstraint->eval();
+    (void)p;
+    return This->typelessConstraint->eval();
 }
 
 //////////////////////////////////////////////////////////////////////////

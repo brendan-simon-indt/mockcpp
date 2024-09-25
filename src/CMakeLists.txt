@@ -20,7 +20,7 @@ IF(NOT DEFINED MOCKCPP_XUNIT)
 ENDIF()
 
 
-   
+
 # Set MOCKCPP_MAX_INHERITANCE
 #
 IF(MOCKCPP_ALLOW_MI)
@@ -64,12 +64,12 @@ ADD_DEFINITIONS(
 )
 
 FIND_FILE(BOOST_HEADER
-            typeof.hpp 
-            PATHS ${MOCKCPP_SRC_ROOT}/3rdparty/boost/typeof 
-            NO_DEFAULT_PATH 
-            NO_CMAKE_ENVIRONMENT_PATH 
-            NO_CMAKE_PATH 
-            NO_SYSTEM_ENVIRONMENT_PATH 
+            typeof.hpp
+            PATHS ${MOCKCPP_SRC_ROOT}/3rdparty/boost/typeof
+            NO_DEFAULT_PATH
+            NO_CMAKE_ENVIRONMENT_PATH
+            NO_CMAKE_PATH
+            NO_SYSTEM_ENVIRONMENT_PATH
             NO_CMAKE_SYSTEM_PATH)
 IF(NOT EXISTS ${BOOST_HEADER})
 ADD_DEFINITIONS(-DNO_BOOST=1)
@@ -80,7 +80,8 @@ IF(MSVC)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /vmg")
 	INCLUDE_DIRECTORIES(BEFORE ${MOCKCPP_SRC_ROOT}/3rdparty/msinttypes)
 ELSE(MSVC)
-    ADD_DEFINITIONS(-std=c++11)
+    # ADD_DEFINITIONS(-std=c++11)
+    ADD_DEFINITIONS(-std=c++11 -Werror -Wall -Wextra -Wpedantic)
 ENDIF(MSVC)
 
 #IF(UNIX)
@@ -100,7 +101,7 @@ IF(CMAKE_CL_64)
     ADD_DEFINITIONS(-DWIN64)
 ENDIF(CMAKE_CL_64)
 
-SET(MOCKCPP_SRCS 
+SET(MOCKCPP_SRCS
     AfterMatcher.cpp
     AnyBase.cpp
     AnyCast.cpp
@@ -189,12 +190,12 @@ IF(${MOCKCPP_XUNIT} STREQUAL "GTEST" OR ${MOCKCPP_XUNIT} STREQUAL "gtest")
       MESSAGE(FATAL_ERROR "Please specify MOCKCPP_XUNIT_HOME as the home path of googletest")
    ENDIF()
    FIND_FILE(GTEST_HEADER
-             gtest.h 
-             PATHS ${MOCKCPP_XUNIT_HOME}/include/gtest 
-             NO_DEFAULT_PATH 
-             NO_CMAKE_ENVIRONMENT_PATH 
-             NO_CMAKE_PATH 
-             NO_SYSTEM_ENVIRONMENT_PATH 
+             gtest.h
+             PATHS ${MOCKCPP_XUNIT_HOME}/include/gtest
+             NO_DEFAULT_PATH
+             NO_CMAKE_ENVIRONMENT_PATH
+             NO_CMAKE_PATH
+             NO_SYSTEM_ENVIRONMENT_PATH
              NO_CMAKE_SYSTEM_PATH)
    IF(NOT EXISTS ${GTEST_HEADER})
       MESSAGE(FATAL_ERROR "gtest.h not found in ${MOCKCPP_XUNIT_HOME}/include/gtest, please specify MOCKCPP_XUNIT_HOME as the home path of googletest correctly.")
@@ -208,29 +209,29 @@ ELSEIF(${MOCKCPP_XUNIT} STREQUAL "CppUTest" OR ${MOCKCPP_XUNIT} STREQUAL "cppute
       MESSAGE(FATAL_ERROR "Please specify MOCKCPP_XUNIT_HOME as the home path of googletest")
    ENDIF()
    FIND_FILE(CPPUTEST_HEADER
-             TestHarness.h 
+             TestHarness.h
              PATHS ${MOCKCPP_XUNIT_HOME}/include/CppUTest
-             NO_DEFAULT_PATH 
-             NO_CMAKE_ENVIRONMENT_PATH 
-             NO_CMAKE_PATH 
-             NO_SYSTEM_ENVIRONMENT_PATH 
+             NO_DEFAULT_PATH
+             NO_CMAKE_ENVIRONMENT_PATH
+             NO_CMAKE_PATH
+             NO_SYSTEM_ENVIRONMENT_PATH
              NO_CMAKE_SYSTEM_PATH)
    IF(NOT EXISTS ${CPPUTEST_HEADER})
       MESSAGE(FATAL_ERROR "TestHarness.h not found in ${MOCKCPP_XUNIT_HOME}/include/CppUTest, please specify MOCKCPP_XUNIT_HOME as the home path of CppUTest correctly.")
    ENDIF()
    INCLUDE_DIRECTORIES(BEFORE ${MOCKCPP_XUNIT_HOME}/include ${MOCKCPP_XUNIT_HOME}/include/Platforms/VisualCpp)
-   SET(MOCKCPP_SRCS ${MOCKCPP_SRCS} ports/failure/cpputest_report_failure.cpp)   
-   
+   SET(MOCKCPP_SRCS ${MOCKCPP_SRCS} ports/failure/cpputest_report_failure.cpp)
+
 ELSEIF(${MOCKCPP_XUNIT} STREQUAL "CPPUNIT" OR ${MOCKCPP_XUNIT} STREQUAL "cppunit")
    IF(NOT DEFINED MOCKCPP_XUNIT_HOME)
       MESSAGE(FATAL_ERROR "Please specify MOCKCPP_XUNIT_HOME as the home path of cppunit")
    ENDIF()
-   FIND_FILE(CPPUNIT_HEADER Exception.h 
+   FIND_FILE(CPPUNIT_HEADER Exception.h
              PATHS ${MOCKCPP_XUNIT_HOME}/include/cppunit
-             NO_DEFAULT_PATH 
-             NO_CMAKE_ENVIRONMENT_PATH 
-             NO_CMAKE_PATH 
-             NO_SYSTEM_ENVIRONMENT_PATH 
+             NO_DEFAULT_PATH
+             NO_CMAKE_ENVIRONMENT_PATH
+             NO_CMAKE_PATH
+             NO_SYSTEM_ENVIRONMENT_PATH
              NO_CMAKE_SYSTEM_PATH)
    IF(NOT EXISTS ${CPPUNIT_HEADER})
       MESSAGE(FATAL_ERROR "Can't find file Exception.h, please specify MOCKCPP_XUNIT_HOME as the home path of cppunit correctly.")
@@ -242,12 +243,12 @@ ELSEIF(${MOCKCPP_XUNIT} STREQUAL "Catch2" OR ${MOCKCPP_XUNIT} STREQUAL "catch2")
       MESSAGE(FATAL_ERROR "Please specify MOCKCPP_XUNIT_HOME as the home path of catch2")
    ENDIF()
    FIND_FILE(CATCH2_HEADER
-             catch_test_macros.hpp 
+             catch_test_macros.hpp
              PATHS ${MOCKCPP_XUNIT_HOME}/catch2
-             NO_DEFAULT_PATH 
-             NO_CMAKE_ENVIRONMENT_PATH 
-             NO_CMAKE_PATH 
-             NO_SYSTEM_ENVIRONMENT_PATH 
+             NO_DEFAULT_PATH
+             NO_CMAKE_ENVIRONMENT_PATH
+             NO_CMAKE_PATH
+             NO_SYSTEM_ENVIRONMENT_PATH
              NO_CMAKE_SYSTEM_PATH)
    IF(NOT EXISTS ${CATCH2_HEADER})
       MESSAGE(FATAL_ERROR "Can't find file catch_test_macros.hpp, please specify MOCKCPP_XUNIT_HOME as the home path of catch2 correctly.")
@@ -259,30 +260,30 @@ ELSE()
 ENDIF()
 
 IF(MSVC OR MINGW)
-   SET(MOCKCPP_SRCS 
-       ${MOCKCPP_SRCS} 
+   SET(MOCKCPP_SRCS
+       ${MOCKCPP_SRCS}
        WinCodeModifier.cpp
-   ) 
+   )
 ELSE(MSVC OR MINGW)
-   SET(MOCKCPP_SRCS 
-       ${MOCKCPP_SRCS} 
+   SET(MOCKCPP_SRCS
+       ${MOCKCPP_SRCS}
        UnixCodeModifier.cpp
    )
 ENDIF(MSVC OR MINGW)
 ######################################################
 SET(MOCKCPP_HEADERS_PATH ${MOCKCPP_SRC_ROOT}/include/mockcpp)
 
-SET(MOCKCPP_VTBL_RELATED_HEADERS 
-    ${MOCKCPP_HEADERS_PATH}/DelegatedMethodGetDef.h 
-    ${MOCKCPP_HEADERS_PATH}/DelegatedMethodGetByVptrDef.h 
-    ${MOCKCPP_HEADERS_PATH}/DestructorAddrGetterDef.h 
+SET(MOCKCPP_VTBL_RELATED_HEADERS
+    ${MOCKCPP_HEADERS_PATH}/DelegatedMethodGetDef.h
+    ${MOCKCPP_HEADERS_PATH}/DelegatedMethodGetByVptrDef.h
+    ${MOCKCPP_HEADERS_PATH}/DestructorAddrGetterDef.h
     ${MOCKCPP_HEADERS_PATH}/MethodIndiceCheckerDef.h
     ${MOCKCPP_HEADERS_PATH}/DefaultMethodAddrGetterDef.h
 )
 
 SET(MOCKCPP_ARG_RELATED_HEADER_FILES
-    ${MOCKCPP_HEADERS_PATH}/DelegatedMethodDef.h 
-    ${MOCKCPP_HEADERS_PATH}/ArgumentsListDef.h  
+    ${MOCKCPP_HEADERS_PATH}/DelegatedMethodDef.h
+    ${MOCKCPP_HEADERS_PATH}/ArgumentsListDef.h
     ${MOCKCPP_HEADERS_PATH}/MethodTypeTraitsDef.h
 )
 

@@ -38,7 +38,7 @@ bool TypelessStubAdapter::isCompleted() const
 ////////////////////////////////////////////////////////
 Any& TypelessStubAdapter::invoke(const Invocation& inv)
 {
-   (void)inv;  
+   (void)inv;
 	return stub->invoke();
 }
 

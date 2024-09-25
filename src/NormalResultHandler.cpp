@@ -29,8 +29,8 @@ NormalResultHandler::NormalResultHandler(bool castable)
 ///////////////////////////////////////////////////////////////////////////
 bool NormalResultHandler::matches(const Any& result) const
 {
-   (void)result;
-   return isCastable;
+    (void)result;
+    return isCastable;
 }
 
 ///////////////////////////////////////////////////////////////////////////
