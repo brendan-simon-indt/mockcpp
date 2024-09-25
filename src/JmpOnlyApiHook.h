@@ -33,7 +33,7 @@ struct JmpOnlyApiHook
     ~JmpOnlyApiHook();
 
 private:
-    JmpOnlyApiHookImpl* This;;
+    JmpOnlyApiHookImpl* This;
 };
 
 MOCKCPP_NS_END
