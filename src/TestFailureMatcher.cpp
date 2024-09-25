@@ -35,7 +35,7 @@ bool TestFailureMatcher::matches(const Invocation& inv) const
 //////////////////////////////////////////////////////////////////////
 void TestFailureMatcher::increaseInvoked(const Invocation& inv)
 {
-    (void)inv;  
+    (void)inv;
     MOCKCPP_FAIL(msg);
 }
 

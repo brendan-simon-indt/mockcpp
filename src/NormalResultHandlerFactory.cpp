@@ -27,10 +27,10 @@ ResultHandler* NormalResultHandlerFactory::create(
           , const std::string& expectedTypeString
           , const SelfDescribe* selfDescriber)
 {
-   (void)expectedTypeInfo;
-   (void)expectedTypeString;
-   (void)selfDescriber;
-   return new NormalResultHandler(isCastable);
+    (void)expectedTypeInfo;
+    (void)expectedTypeString;
+    (void)selfDescriber;
+    return new NormalResultHandler(isCastable);
 }
 
 ///////////////////////////////////////////////////////////

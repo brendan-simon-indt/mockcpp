@@ -38,7 +38,7 @@ bool AfterMatcher::matches(const Invocation& inv) const
 //////////////////////////////////////////////////////
 void AfterMatcher::increaseInvoked(const Invocation& inv)
 {
-    (void)inv;  
+    (void)inv;
 
     oss_t oss;
 

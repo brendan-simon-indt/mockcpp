@@ -28,11 +28,11 @@ ResultHandler* IgnoreResultHandlerFactory::create(
           , const std::string& expectedTypeString
           , const SelfDescribe* selfDescriber)
 {
-   (void)isCastable;
-   (void)expectedTypeInfo;
-   (void)expectedTypeString;
-   (void)selfDescriber;
-   return new IgnoreResultHandler();
+    (void)isCastable;
+    (void)expectedTypeInfo;
+    (void)expectedTypeString;
+    (void)selfDescriber;
+    return new IgnoreResultHandler();
 }
 
 ///////////////////////////////////////////////////////////

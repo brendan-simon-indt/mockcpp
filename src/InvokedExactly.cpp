@@ -31,8 +31,8 @@ InvokedExactly::InvokedExactly(const unsigned int times)
 /////////////////////////////////////////////////////////
 bool InvokedExactly::matches(const Invocation& inv) const
 {
-   (void)inv;
-   return true;
+    (void)inv;
+    return true;
 }
 
 /////////////////////////////////////////////////////////

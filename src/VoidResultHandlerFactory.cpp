@@ -28,8 +28,8 @@ ResultHandler* VoidResultHandlerFactory::create(
           , const std::string& expectedTypeString
           , const SelfDescribe* selfDescriber)
 {
-   (void)isCastable;
-   return new VoidResultHandler(expectedTypeInfo, expectedTypeString, selfDescriber);
+    (void)isCastable;
+    return new VoidResultHandler(expectedTypeInfo, expectedTypeString, selfDescriber);
 }
 
 

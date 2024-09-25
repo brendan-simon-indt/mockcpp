@@ -26,16 +26,16 @@
 # define MOCKCPP_NS_END }
 # define USING_MOCKCPP_NS using namespace MOCKCPP_NS;
 #else
-# define MOCKCPP_NS 
-# define MOCKCPP_NS_START 
-# define MOCKCPP_NS_END 
-# define USING_MOCKCPP_NS 
+# define MOCKCPP_NS
+# define MOCKCPP_NS_START
+# define MOCKCPP_NS_END
+# define USING_MOCKCPP_NS
 #endif
 
 #ifdef _MSC_VER
 # define MOCKCPP_EXPORT __declspec(dllexport)
 #else
-# define MOCKCPP_EXPORT 
+# define MOCKCPP_EXPORT
 #endif
 
 
@@ -48,7 +48,7 @@
 #define BUILD_FOR_X64 1
 #define BUILD_FOR_X86 0
 
-#else	
+#else
 
 #define BUILD_FOR_X64 0
 #define BUILD_FOR_X86 1
@@ -57,4 +57,3 @@
 
 
 #endif // __MOCKCPP_H
-
