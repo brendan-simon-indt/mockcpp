@@ -209,7 +209,7 @@ inline int fixed_mem_pool<_Tp>::get_alloc_count()
 template <class _Tp>
 inline bool fixed_mem_pool<_Tp>::is_initialized()
 {
-    return _S_mem_pool_ptr != NULL;;
+    return _S_mem_pool_ptr != NULL;
 }
 
 /**

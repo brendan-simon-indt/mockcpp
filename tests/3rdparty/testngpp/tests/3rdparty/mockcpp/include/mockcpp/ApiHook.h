@@ -32,7 +32,7 @@ struct ApiHook
     ~ApiHook();
 
 private:
-    ApiHookImpl* This;;
+    ApiHookImpl* This;
 };
 
 MOCKCPP_NS_END
